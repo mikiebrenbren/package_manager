@@ -1,44 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="groovy.TestMe" tests="3" skipped="0" failures="1" errors="0" timestamp="2015-08-28T14:42:01" hostname="Michaels-MBP" time="0.181">
+<testsuite name="groovy.TestMe" tests="3" skipped="0" failures="0" errors="0" timestamp="2015-08-28T22:50:48" hostname="Michaels-MBP" time="0.095">
   <properties/>
-  <testcase name="test me " classname="groovy.TestMe" time="0.076"/>
-  <testcase name="Package manager 1" classname="groovy.TestMe" time="0.02"/>
-  <testcase name="Package manager 2" classname="groovy.TestMe" time="0.084">
-    <failure message="Condition not satisfied:&#10;&#10;iwant[i].equals(output[i])&#10;|    ||  |      |     ||&#10;|    |0  false  |     |0&#10;|    |          |     Fraudstream&#10;|    |          [Fraudstream, CamelCaser, Cyberportal, Cyberportal, Ice, KittenService, Leetmeme, Leetmeme]&#10;|    KittenService&#10;[KittenService, Ice, Cyberportal, Leetmeme, CamelCaser, Fraudstream]&#10;" type="org.spockframework.runtime.ConditionNotSatisfiedError">Condition not satisfied:
-
-iwant[i].equals(output[i])
-|    ||  |      |     ||
-|    |0  false  |     |0
-|    |          |     Fraudstream
-|    |          [Fraudstream, CamelCaser, Cyberportal, Cyberportal, Ice, KittenService, Leetmeme, Leetmeme]
-|    KittenService
-[KittenService, Ice, Cyberportal, Leetmeme, CamelCaser, Fraudstream]
-
-	at groovy.TestMe.Package manager 2(TestMe.groovy:54)
-</failure>
-  </testcase>
-  <system-out><![CDATA[CamelCaser
-KittenService
-Cyberportal
-Leetmeme
-Cyberportal
-Cyberportal
-Ice
-Leetmeme
-CamelCaser
-Cyberportal
-Cyberportal
-Ice
-KittenService
-Leetmeme
-Fraudstream
-CamelCaser
-Cyberportal
-Cyberportal
-Ice
-KittenService
-Leetmeme
-Leetmeme
-]]></system-out>
+  <testcase name="test me " classname="groovy.TestMe" time="0.079"/>
+  <testcase name="Package manager 1" classname="groovy.TestMe" time="0.015"/>
+  <testcase name="Package manager 2" classname="groovy.TestMe" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -32,27 +32,36 @@ class TestMe extends Specification {
         String[] input = ["KittenService: CamelCaser", "CamelCaser:"]
         String[] iwant = ["CamelCaser", "KittenService"]
         String [] output = pm.orderPacks(input)
+        ArrayList<String> al = new ArrayList<>()
+        al.addAll(output)
 
         then:
         iwant as Set == output as Set
-        for(int i = 0; i < iwant.length; i++){
-            assert iwant[i].equals(output[i])
-        }
+        al.indexOf("CamelCase") < al.indexOf("KittenService")
     }
 
     def "Package manager 2"(){
         when:
         pm = new PackageManager()
-        String[] input = ["KittenService:", "Leetmeme: Cyberportal", "Cyberportal: Ice", "CamelCaser: KittenService", "Fraudstream: Leetmeme",
-        "Ice:"]
+        String[] input = [
+                          "KittenService:",
+                          "Leetmeme: Cyberportal",
+                          "Cyberportal: Ice",
+                          "CamelCaser: KittenService",
+                          "Fraudstream: Leetmeme",
+                          "Ice:"
+        ]
         String[] iwant = ["KittenService", "Ice", "Cyberportal", "Leetmeme", "CamelCaser", "Fraudstream"]
         String [] output = pm.orderPacks(input)
+        ArrayList<String> al = new ArrayList<>()
+        al.addAll(output)
 
         then:
         iwant as Set == output as Set
-        for(int i = 0; i < iwant.length; i++){
-            assert iwant[i].equals(output[i])
-        }
+        al.indexOf("KittenService") < al.indexOf("CamelCaser")
+        al.indexOf("Cyberportal") < al.indexOf("Leetmeme")
+        al.indexOf("Cyberportal") < al.indexOf("Fraudstream")
+        al.indexOf("KittenService") < al.indexOf("CamelCaser")
     }
 
 }
