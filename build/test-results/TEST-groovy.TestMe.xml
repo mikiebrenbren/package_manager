@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="groovy.TestMe" tests="3" skipped="0" failures="0" errors="0" timestamp="2015-08-28T22:50:48" hostname="Michaels-MBP" time="0.095">
+<testsuite name="groovy.TestMe" tests="5" skipped="0" failures="1" errors="0" timestamp="2015-08-28T23:30:05" hostname="Michaels-MBP" time="0.157">
   <properties/>
-  <testcase name="test me " classname="groovy.TestMe" time="0.079"/>
-  <testcase name="Package manager 1" classname="groovy.TestMe" time="0.015"/>
+  <testcase name="test me " classname="groovy.TestMe" time="0.07"/>
+  <testcase name="Package manager 1" classname="groovy.TestMe" time="0.014"/>
   <testcase name="Package manager 2" classname="groovy.TestMe" time="0.001"/>
+  <testcase name="Package Manager 3" classname="groovy.TestMe" time="0.001"/>
+  <testcase name="Package Manager 4" classname="groovy.TestMe" time="0.07">
+    <failure message="Condition not satisfied:&#10;&#10;iwant as Set == output as Set&#10;|            |  |&#10;null         |  [KittenService, CamelCaser, Leetmeme, Ice, Cyberportal, Fraudstream]&#10;             false&#10;" type="org.spockframework.runtime.SpockComparisonFailure">Condition not satisfied:
+
+iwant as Set == output as Set
+|            |  |
+null         |  [KittenService, CamelCaser, Leetmeme, Ice, Cyberportal, Fraudstream]
+             false
+
+	at groovy.TestMe.Package Manager 4(TestMe.groovy:107)
+</failure>
+  </testcase>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

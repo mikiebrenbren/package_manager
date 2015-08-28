@@ -64,4 +64,47 @@ class TestMe extends Specification {
         al.indexOf("KittenService") < al.indexOf("CamelCaser")
     }
 
+    def "Package Manager 3"(){
+        when:
+        pm = new PackageManager()
+        String[] input = [
+                "Apple: Fruit",
+                "Fruit:",
+                "Sausage: Meat",
+                "Orange:",
+                "Meat: Food",
+                "Food:"
+        ]
+        String[] iwant = ["Fruit", "Apple", "Food", "Meat", "Sausage", "Orange"]
+        String [] output = pm.orderPacks(input)
+        ArrayList<String> al = new ArrayList<>()
+        al.addAll(output)
+
+        then:
+        iwant as Set == output as Set
+        al.indexOf("Fruit") < al.indexOf("Apple")
+        al.indexOf("Food") < al.indexOf("Meat")
+        al.indexOf("Food") < al.indexOf("Sausage")
+        al.indexOf("Meat") < al.indexOf("Sausage")
+    }
+
+    def "Package Manager 4"(){
+
+        when:
+        pm = new PackageManager()
+        String[] input = [
+                "KittenService:",
+                "Leetmeme: Cyberportal",
+                "Cyberportal: Ice",
+                "CamelCaser: KittenService",
+                "Fraudstream:",
+                "Ice: Leetmeme"
+        ]
+        String[] iwant = null
+        String [] output = pm.orderPacks(input)
+
+        then:
+        iwant as Set == output as Set
+    }
+
 }

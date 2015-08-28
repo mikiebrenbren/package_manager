@@ -65,7 +65,18 @@ public class PackageManager{
 
         LinkedHashSet<String> set  = new LinkedHashSet<>(output);
         ArrayList<String> uniqueList = new ArrayList<>();
+        getUniqueList(p, set, uniqueList);
 
+        LinkedHashSet<String> set1  = new LinkedHashSet<>(uniqueList);
+
+        return set1.toArray(new String[set1.size()]);
+    }
+
+    private void getUniqueList(Pattern p, LinkedHashSet<String> set, ArrayList<String> uniqueList) {
+        Matcher m;
+        String[] split;
+        String dependant;
+        String dependency;
         for(String s : set){
             m = p.matcher(s);
             split = s.split("\\:"); //split items dependency is index 1
@@ -76,12 +87,7 @@ public class PackageManager{
             }
             uniqueList.add(dependant);
         }
-
-        LinkedHashSet<String> set1  = new LinkedHashSet<>(uniqueList);
-
-        return set1.toArray(new String[set1.size()]);
     }
-
 
 
 }
