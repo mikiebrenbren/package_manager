@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="groovy.TestMe" tests="1" skipped="0" failures="1" errors="0" timestamp="2015-08-28T01:01:10" hostname="Michaels-MBP" time="0.121">
+  <properties/>
+  <testcase name="test me " classname="groovy.TestMe" time="0.121">
+    <failure message="Condition not satisfied:&#10;&#10;h.getS() !=5&#10;| |      |&#10;| 5      false&#10;com.mike.Hello@61165e7a&#10;" type="org.spockframework.runtime.ConditionNotSatisfiedError">Condition not satisfied:
+
+h.getS() !=5
+| |      |
+| 5      false
+com.mike.Hello@61165e7a
+
+	at groovy.TestMe.test me (TestMe.groovy:19)
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
