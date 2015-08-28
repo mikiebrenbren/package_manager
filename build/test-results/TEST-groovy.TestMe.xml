@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="groovy.TestMe" tests="1" skipped="0" failures="1" errors="0" timestamp="2015-08-28T01:01:10" hostname="Michaels-MBP" time="0.121">
+<testsuite name="groovy.TestMe" tests="2" skipped="0" failures="1" errors="0" timestamp="2015-08-28T01:36:44" hostname="Michaels-MBP" time="0.148">
   <properties/>
-  <testcase name="test me " classname="groovy.TestMe" time="0.121">
-    <failure message="Condition not satisfied:&#10;&#10;h.getS() !=5&#10;| |      |&#10;| 5      false&#10;com.mike.Hello@61165e7a&#10;" type="org.spockframework.runtime.ConditionNotSatisfiedError">Condition not satisfied:
+  <testcase name="test me " classname="groovy.TestMe" time="0.076"/>
+  <testcase name="Package manager 1" classname="groovy.TestMe" time="0.072">
+    <failure message="Condition not satisfied:&#10;&#10;iwant as Set == output as Set&#10;|            |  |&#10;|            |  null&#10;|            false&#10;[CamelCaser, KittenService]&#10;" type="org.spockframework.runtime.SpockComparisonFailure">Condition not satisfied:
 
-h.getS() !=5
-| |      |
-| 5      false
-com.mike.Hello@61165e7a
+iwant as Set == output as Set
+|            |  |
+|            |  null
+|            false
+[CamelCaser, KittenService]
 
-	at groovy.TestMe.test me (TestMe.groovy:19)
+	at groovy.TestMe.Package manager 1(TestMe.groovy:31)
 </failure>
   </testcase>
   <system-out><![CDATA[]]></system-out>

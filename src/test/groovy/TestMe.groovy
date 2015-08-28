@@ -1,6 +1,7 @@
 package groovy
 
 import com.mike.Hello
+import com.mike.PackageManager
 import spock.lang.Specification
 import spock.lang.Stepwise
 
@@ -16,7 +17,19 @@ class TestMe extends Specification {
 
         then:
         h.getS() == 5
-        h.getS() !=5
+//        h.getS() !=5
+    }
+
+    def "Package manager 1"(){
+        when:
+        PackageManager pm = new PackageManager();
+        String[] input = ["KittenService: CamelCaser", "CamelCaser:"]
+        String[] iwant = ["CamelCaser", "KittenService"]
+        String [] output = pm.orderPacks(input)
+
+        then:
+        iwant as Set == output as Set
+
     }
 
 
