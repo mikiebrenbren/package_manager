@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="groovy.TestMe" tests="2" skipped="0" failures="1" errors="0" timestamp="2015-08-28T01:36:44" hostname="Michaels-MBP" time="0.148">
+<testsuite name="groovy.TestMe" tests="3" skipped="0" failures="1" errors="0" timestamp="2015-08-28T14:42:01" hostname="Michaels-MBP" time="0.181">
   <properties/>
   <testcase name="test me " classname="groovy.TestMe" time="0.076"/>
-  <testcase name="Package manager 1" classname="groovy.TestMe" time="0.072">
-    <failure message="Condition not satisfied:&#10;&#10;iwant as Set == output as Set&#10;|            |  |&#10;|            |  null&#10;|            false&#10;[CamelCaser, KittenService]&#10;" type="org.spockframework.runtime.SpockComparisonFailure">Condition not satisfied:
+  <testcase name="Package manager 1" classname="groovy.TestMe" time="0.02"/>
+  <testcase name="Package manager 2" classname="groovy.TestMe" time="0.084">
+    <failure message="Condition not satisfied:&#10;&#10;iwant[i].equals(output[i])&#10;|    ||  |      |     ||&#10;|    |0  false  |     |0&#10;|    |          |     Fraudstream&#10;|    |          [Fraudstream, CamelCaser, Cyberportal, Cyberportal, Ice, KittenService, Leetmeme, Leetmeme]&#10;|    KittenService&#10;[KittenService, Ice, Cyberportal, Leetmeme, CamelCaser, Fraudstream]&#10;" type="org.spockframework.runtime.ConditionNotSatisfiedError">Condition not satisfied:
 
-iwant as Set == output as Set
-|            |  |
-|            |  null
-|            false
-[CamelCaser, KittenService]
+iwant[i].equals(output[i])
+|    ||  |      |     ||
+|    |0  false  |     |0
+|    |          |     Fraudstream
+|    |          [Fraudstream, CamelCaser, Cyberportal, Cyberportal, Ice, KittenService, Leetmeme, Leetmeme]
+|    KittenService
+[KittenService, Ice, Cyberportal, Leetmeme, CamelCaser, Fraudstream]
 
-	at groovy.TestMe.Package manager 1(TestMe.groovy:31)
+	at groovy.TestMe.Package manager 2(TestMe.groovy:54)
 </failure>
   </testcase>
-  <system-out><![CDATA[]]></system-out>
+  <system-out><![CDATA[CamelCaser
+KittenService
+Cyberportal
+Leetmeme
+Cyberportal
+Cyberportal
+Ice
+Leetmeme
+CamelCaser
+Cyberportal
+Cyberportal
+Ice
+KittenService
+Leetmeme
+Fraudstream
+CamelCaser
+Cyberportal
+Cyberportal
+Ice
+KittenService
+Leetmeme
+Leetmeme
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
