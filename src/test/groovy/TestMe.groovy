@@ -6,9 +6,6 @@ import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Stepwise
 
-import java.util.regex.Matcher
-import java.util.regex.Pattern
-
 /**
  * Created by michaelbrennan on 8/27/15.
  */

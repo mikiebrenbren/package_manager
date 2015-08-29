@@ -73,9 +73,9 @@ public class PackageManager{
         LinkedHashSet<String> set  = new LinkedHashSet<>(output);
         ArrayList<String> uniqueList = new ArrayList<>();
         getUniqueList(set, uniqueList);
-        LinkedHashSet<String> set1  = new LinkedHashSet<>(uniqueList);
+        set  = new LinkedHashSet<>(uniqueList);
 
-        return set1.toArray(new String[set1.size()]);
+        return set.toArray(new String[set.size()]);
     }
 
     private void getUniqueList(LinkedHashSet<String> set, ArrayList<String> uniqueList) {
