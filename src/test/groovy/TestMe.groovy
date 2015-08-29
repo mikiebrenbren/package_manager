@@ -61,6 +61,7 @@ class TestMe extends Specification {
         al.addAll(output)
 
         then:
+        output != null
         iwant as Set == output as Set
         al.indexOf("KittenService") < al.indexOf("CamelCaser")
         al.indexOf("Cyberportal") < al.indexOf("Leetmeme")
