@@ -13,6 +13,12 @@ import java.util.regex.Pattern;
 
 public class PackageManager{
 
+    final Pattern p = Pattern.compile(".*:\\s*(.*)");
+    Matcher m;
+    String dependant;
+    String dependency;
+    String[] split;
+
     public String[] orderPacks(String[] input){
 
         if (isCyclic(input)){
@@ -20,11 +26,6 @@ public class PackageManager{
         }
 
         List<String> output = new ArrayList<>();
-        Pattern p = Pattern.compile(".*:\\s*(.*)");
-        Matcher m;
-        String[] split;
-        String dependant;
-        String dependency;
         String single;
         int index;
 
@@ -71,17 +72,13 @@ public class PackageManager{
 
         LinkedHashSet<String> set  = new LinkedHashSet<>(output);
         ArrayList<String> uniqueList = new ArrayList<>();
-        getUniqueList(p, set, uniqueList);
+        getUniqueList(set, uniqueList);
         LinkedHashSet<String> set1  = new LinkedHashSet<>(uniqueList);
 
         return set1.toArray(new String[set1.size()]);
     }
 
-    private void getUniqueList(Pattern p, LinkedHashSet<String> set, ArrayList<String> uniqueList) {
-        Matcher m;
-        String[] split;
-        String dependant;
-        String dependency;
+    private void getUniqueList(LinkedHashSet<String> set, ArrayList<String> uniqueList) {
         for(String s : set){
             m = p.matcher(s);
             split = s.split("\\:"); //split items dependency is index 1
@@ -96,11 +93,6 @@ public class PackageManager{
 
     public boolean isCyclic(String[] input){
 
-        Pattern p = Pattern.compile(".*:\\s*(.*)");
-        Matcher m;
-        String[] split;
-        String dependant;
-        String dependency;
         HashMap<String, String> depMap = new HashMap<>();
 
         for(String s : input){

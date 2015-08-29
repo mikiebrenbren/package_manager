@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="groovy.TestMe" tests="6" skipped="0" failures="0" errors="0" timestamp="2015-08-29T01:31:19" hostname="Michaels-MBP" time="0.098">
+<testsuite name="groovy.TestMe" tests="6" skipped="0" failures="0" errors="0" timestamp="2015-08-29T01:35:26" hostname="Michaels-MBP" time="0.09">
   <properties/>
-  <testcase name="test me " classname="groovy.TestMe" time="0.075"/>
-  <testcase name="Package manager 1" classname="groovy.TestMe" time="0.017"/>
+  <testcase name="test me " classname="groovy.TestMe" time="0.071"/>
+  <testcase name="Package manager 1" classname="groovy.TestMe" time="0.015"/>
   <testcase name="Package manager 2" classname="groovy.TestMe" time="0.001"/>
   <testcase name="Package Manager 3" classname="groovy.TestMe" time="0.002"/>
-  <testcase name="Package Manager 4 cyclic test" classname="groovy.TestMe" time="0.002"/>
+  <testcase name="Package Manager 4 cyclic test" classname="groovy.TestMe" time="0.001"/>
   <testcase name="Package Manager 5 cyclic test" classname="groovy.TestMe" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
