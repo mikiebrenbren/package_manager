@@ -17,6 +17,8 @@ class TestMe extends Specification {
 
     @Shared
     PackageManager pm
+    @Shared
+    def isCyclic
 
     def "test me "(){
         when:
@@ -36,6 +38,8 @@ class TestMe extends Specification {
         al.addAll(output)
 
         then:
+        output != null
+        !pm.isCyclic(input)
         iwant as Set == output as Set
         al.indexOf("CamelCase") < al.indexOf("KittenService")
     }
@@ -81,6 +85,8 @@ class TestMe extends Specification {
         al.addAll(output)
 
         then:
+        output != null
+        !pm.isCyclic(input)
         iwant as Set == output as Set
         al.indexOf("Fruit") < al.indexOf("Apple")
         al.indexOf("Food") < al.indexOf("Meat")
@@ -88,7 +94,7 @@ class TestMe extends Specification {
         al.indexOf("Meat") < al.indexOf("Sausage")
     }
 
-    def "Package Manager 4"(){
+    def "Package Manager 4 cyclic test"(){
 
         when:
         pm = new PackageManager()
@@ -100,11 +106,21 @@ class TestMe extends Specification {
                 "Fraudstream:",
                 "Ice: Leetmeme"
         ]
-        String[] iwant = null
-        String [] output = pm.orderPacks(input)
+
+        isCyclic = pm.isCyclic(input)
 
         then:
-        iwant as Set == output as Set
+        isCyclic
+    }
+
+    def "Package Manager 5 cyclic test"(){
+        when:
+        pm = new PackageManager()
+        String[] input = ["Cyclic: Iam", "Iam: Cyclic"]
+        isCyclic = pm.isCyclic(input)
+
+        then:
+        isCyclic
     }
 
 }
