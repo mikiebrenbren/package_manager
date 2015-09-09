@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="groovy.TestMe" tests="6" skipped="0" failures="0" errors="0" timestamp="2015-08-29T01:37:00" hostname="Michaels-MBP" time="0.093">
+<testsuite name="groovy.TestMe" tests="7" skipped="0" failures="1" errors="0" timestamp="2015-09-01T18:20:33" hostname="Michaels-MBP" time="0.162">
   <properties/>
-  <testcase name="test me " classname="groovy.TestMe" time="0.068"/>
-  <testcase name="Package manager 1" classname="groovy.TestMe" time="0.02"/>
-  <testcase name="Package manager 2" classname="groovy.TestMe" time="0.001"/>
+  <testcase name="test me " classname="groovy.TestMe" time="0.07"/>
+  <testcase name="Package manager 1" classname="groovy.TestMe" time="0.015"/>
+  <testcase name="Package manager 2" classname="groovy.TestMe" time="0.002"/>
   <testcase name="Package Manager 3" classname="groovy.TestMe" time="0.002"/>
   <testcase name="Package Manager 4 cyclic test" classname="groovy.TestMe" time="0.001"/>
-  <testcase name="Package Manager 5 cyclic test" classname="groovy.TestMe" time="0.001"/>
+  <testcase name="Package Manager 5 cyclic test" classname="groovy.TestMe" time="0.0"/>
+  <testcase name="Package Manager 6" classname="groovy.TestMe" time="0.072">
+    <failure message="Condition not satisfied:&#10;&#10;!pm.isCyclic(input)&#10;||  |        |&#10;||  true     [Cat:, Charlie:Apple, Apple: Fruit, Fruit:Orange, Sausage: Meat, Orange:Charlie, Meat: Food, Food:]&#10;|com.mike.PackageManager@2982caf6&#10;false&#10;" type="org.spockframework.runtime.ConditionNotSatisfiedError">Condition not satisfied:
+
+!pm.isCyclic(input)
+||  |        |
+||  true     [Cat:, Charlie:Apple, Apple: Fruit, Fruit:Orange, Sausage: Meat, Orange:Charlie, Meat: Food, Food:]
+|com.mike.PackageManager@2982caf6
+false
+
+	at groovy.TestMe.Package Manager 6(TestMe.groovy:147)
+</failure>
+  </testcase>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

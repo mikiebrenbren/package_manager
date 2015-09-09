@@ -1,7 +1,7 @@
 package com.mike;
 
 /**
- * Created by michaelbrennan on 8/27/15.
+ * Created by Michael Brennan on 8/27/15.
  */
 public class Hello {
 
@@ -21,4 +21,5 @@ public class Hello {
     public void setS(int s) {
         this.s = s;
     }
+
 }

@@ -7,7 +7,7 @@ import spock.lang.Specification
 import spock.lang.Stepwise
 
 /**
- * Created by michaelbrennan on 8/27/15.
+ * Created by Michael Brennan on 8/27/15.
  */
 @Stepwise
 class TestMe extends Specification {
@@ -119,6 +119,38 @@ class TestMe extends Specification {
 
         then:
         isCyclic
+    }
+
+    def "Package Manager 6"(){
+        when:
+        pm = new PackageManager()
+        String[] input = [
+                "Cat:",
+                "Charlie:Apple",
+                "Apple: Fruit",
+                "Fruit:Orange",
+                "Sausage: Meat",
+                "Orange:Charlie",
+                "Meat: Food",
+                "Food:"
+        ]
+        String[] iwant = ["Fruit", "Apple", "Food", "Meat", "Sausage", "Orange", "Charlie", "Cat"]
+        String [] output = pm.orderPacks(input)
+        ArrayList<String> al
+        if (output != null){
+            al = new ArrayList<>()
+            al.addAll(output)
+        }
+
+
+        then:
+        !pm.isCyclic(input)
+        iwant as Set == output as Set
+        al.indexOf("Apple") < al.indexOf("Charlie")
+        al.indexOf("Fruit") < al.indexOf("Apple")
+        al.indexOf("Food") < al.indexOf("Meat")
+        al.indexOf("Food") < al.indexOf("Sausage")
+        al.indexOf("Meat") < al.indexOf("Sausage")
     }
 
 }

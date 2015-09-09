@@ -79,6 +79,7 @@ public class PackageManager{
     }
 
     private void getUniqueList(LinkedHashSet<String> set, ArrayList<String> uniqueList) {
+
         for(String s : set){
             m = p.matcher(s);
             split = s.split("\\:"); //split items dependency is index 1
