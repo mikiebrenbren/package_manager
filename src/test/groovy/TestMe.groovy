@@ -6,17 +6,16 @@ import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Stepwise
 
-import java.util.regex.Matcher
-import java.util.regex.Pattern
-
 /**
- * Created by michaelbrennan on 8/27/15.
+ * Created by Michael Brennan on 8/27/15.
  */
 @Stepwise
 class TestMe extends Specification {
 
     @Shared
     PackageManager pm
+    @Shared
+    def isCyclic
 
     def "test me "(){
         when:
@@ -36,6 +35,8 @@ class TestMe extends Specification {
         al.addAll(output)
 
         then:
+        output != null
+        !pm.isCyclic(input)
         iwant as Set == output as Set
         al.indexOf("CamelCase") < al.indexOf("KittenService")
     }
@@ -57,6 +58,7 @@ class TestMe extends Specification {
         al.addAll(output)
 
         then:
+        output != null
         iwant as Set == output as Set
         al.indexOf("KittenService") < al.indexOf("CamelCaser")
         al.indexOf("Cyberportal") < al.indexOf("Leetmeme")
@@ -81,6 +83,8 @@ class TestMe extends Specification {
         al.addAll(output)
 
         then:
+        output != null
+        !pm.isCyclic(input)
         iwant as Set == output as Set
         al.indexOf("Fruit") < al.indexOf("Apple")
         al.indexOf("Food") < al.indexOf("Meat")
@@ -88,7 +92,7 @@ class TestMe extends Specification {
         al.indexOf("Meat") < al.indexOf("Sausage")
     }
 
-    def "Package Manager 4"(){
+    def "Package Manager 4 cyclic test"(){
 
         when:
         pm = new PackageManager()
@@ -100,11 +104,53 @@ class TestMe extends Specification {
                 "Fraudstream:",
                 "Ice: Leetmeme"
         ]
-        String[] iwant = null
-        String [] output = pm.orderPacks(input)
+
+        isCyclic = pm.isCyclic(input)
 
         then:
+        isCyclic
+    }
+
+    def "Package Manager 5 cyclic test"(){
+        when:
+        pm = new PackageManager()
+        String[] input = ["Cyclic: Iam", "Iam: Cyclic"]
+        isCyclic = pm.isCyclic(input)
+
+        then:
+        isCyclic
+    }
+
+    def "Package Manager 6"(){
+        when:
+        pm = new PackageManager()
+        String[] input = [
+                "Cat:",
+                "Charlie:Apple",
+                "Apple: Fruit",
+                "Fruit:Orange",
+                "Sausage: Meat",
+                "Orange:Charlie",
+                "Meat: Food",
+                "Food:"
+        ]
+        String[] iwant = ["Fruit", "Apple", "Food", "Meat", "Sausage", "Orange", "Charlie", "Cat"]
+        String [] output = pm.orderPacks(input)
+        ArrayList<String> al
+        if (output != null){
+            al = new ArrayList<>()
+            al.addAll(output)
+        }
+
+
+        then:
+        !pm.isCyclic(input)
         iwant as Set == output as Set
+        al.indexOf("Apple") < al.indexOf("Charlie")
+        al.indexOf("Fruit") < al.indexOf("Apple")
+        al.indexOf("Food") < al.indexOf("Meat")
+        al.indexOf("Food") < al.indexOf("Sausage")
+        al.indexOf("Meat") < al.indexOf("Sausage")
     }
 
 }
